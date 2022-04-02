@@ -4,6 +4,8 @@ import asyncpg
 from asyncpg import Connection
 from asyncpg.pool import Pool
 
+from databases import DatabaseURL
+
 from data import config
 
 class Database:
@@ -12,11 +14,13 @@ class Database:
         self.pool: Union[Pool, None] = None
 
     async def create(self):
-        self.pool = await asyncpg.create_pool(
-            user=config.DB_USER,
-            password=config.DB_PASS,
-            host=config.DB_HOST,
-            database=config.DB_NAME
+        self.pool = await asyncpg.create_pool(str(
+            DatabaseURL(config.DB_URL)
+        )
+#             user=config.DB_USER,
+#             password=config.DB_PASS,
+#             host=config.DB_HOST,
+#             database=config.DB_NAME
         )
 
     async def execute(self, command, *args,
