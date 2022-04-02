@@ -21,9 +21,12 @@ import os
 BOT_TOKEN = str(os.environ.get('BOT_TOKEN'))
 ADMINS = ['155460463',"1672039210"] # adminlar ro'yxati
 IP = str(os.environ.get('ip'))
+#set DATABASE_URL
 
-DB_USER = str(os.environ.get("DB_USER"))
-DB_PASS = str(os.environ.get("DB_PASS"))
-DB_NAME = str(os.environ.get("DB_NAME"))
-DB_HOST = str(os.environ.get("DB_HOST"))
+DB_URL=str(os.environ.get("DATABASE_URL"))
+
+# DB_USER = str(os.environ.get("DB_USER"))
+# DB_PASS = str(os.environ.get("DB_PASS"))
+# DB_NAME = str(os.environ.get("DB_NAME"))
+# DB_HOST = str(os.environ.get("DB_HOST"))
 
